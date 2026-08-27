@@ -1,0 +1,19 @@
+Tipos de datos:
+
+Primitivos: 
+
+-Number
+-String
+-Boolean
+-Undefined
+-Null
+
+De Referencia:
+(se llama de referencia ya que
+en la memoria no se guardan tal como son 
+sino que guardar una direccion donde se encuentran)
+
+-Array
+-Objetc
+-Function
+-Clases

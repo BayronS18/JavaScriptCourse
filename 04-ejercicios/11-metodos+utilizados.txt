@@ -1,0 +1,25 @@
+Métodos de modificación directa (Mutan el arreglo)
+
+.pop(): Elimina el último elemento de un arreglo y te lo devuelve. Es lo opuesto exacto a .push().
+
+.unshift(): Agrega uno o más elementos al principio (al inicio) del arreglo.
+
+.shift(): Elimina el primer elemento del arreglo.
+
+Métodos de búsqueda y filtrado (Súper comunes)
+
+.includes(elemento): Devuelve true o false si el arreglo contiene un elemento exacto.
+
+.indexOf(elemento): Te dice en qué posición (índice) se encuentra un elemento. Si no existe, devuelve -1.
+
+.find(funcion): Busca y devuelve el primer elemento que cumpla con una condición.
+
+.filter(funcion): Crea un nuevo arreglo con todos los elementos que cumplan una condición.
+
+Métodos de transformación de datos (Especiales de ES6)
+
+.map(funcion): Toma un arreglo, transforma cada uno de sus elementos aplicando una regla y devuelve un nuevo arreglo de la misma longitud.
+
+.reduce(funcion, acumulador): Modifica todo el arreglo a un único valor (por ejemplo, para sumar todos los precios de un carrito de compras).
+
+.join(separador): Une todos los elementos de un arreglo en un solo texto (String) separado por el carácter que elijas.

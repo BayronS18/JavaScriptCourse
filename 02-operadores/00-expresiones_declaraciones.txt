@@ -1,0 +1,29 @@
+-Una expresion: es cualquier fragmento de codigo que se puede evaluar y produce un valor.
+Por ejemplo, 2 + 2 es una expresion que produce el valor 4.
+(cualquier cosa que produce un valor)
+
+-Una Declaracion: es algo que se declara
+si la porcion de codigo no hace nada como lo seria declarar una function
+o declarar una variable es una declaracion
+
+-let   -const  -function  -async function  -class  -export/import
+
+-Statements: Si te permite crear logica y ciertas tareas
+es un statement
+
+-if  -for  -else  -switeh
+
+si no te deja hacerle un console.log(let,const,for if)  es una declaracion
+pero si te deja hacerle un ocnsole.log() es una expresion
+
+LOS OPERADORES NOS PERMITIRAN CREAR EXPRESIONES Y EXPRESIONES NOS PERMITE CREAR ALGORITMO Y 
+CON ALGORITMO SOLUCIONAR PROBLEMAS
+
+Operadores => Crear Expresiones => Crear Algoritmos => Solucionar Problemas
+
+Tipos operadores:
+-Aritmeticos
+-Asignacion
+-Comparacion
+-Logicos
+-Bitwise
