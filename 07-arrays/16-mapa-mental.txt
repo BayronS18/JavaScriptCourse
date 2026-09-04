@@ -7,7 +7,7 @@
 -------------------------------------------------------------------
 
 * .map()
-  - OBJETIVO: Transformar cada elemento.
+  - OBJETIVO: Transformar cada elemento en otra cosa.
   - TAMAÑO FINAL: Mismo número de elementos que el arreglo original.
   - ARROW FUNCTION: Devuelve el elemento modificado.
   - EJEMPLO: precios.map(precio => precio * 1.19); // Agrega IVA
@@ -18,8 +18,21 @@
   - ARROW FUNCTION: Devuelve true si el elemento se queda, false si se descarta.
   - EJEMPLO: usuarios.filter(user => user.edad >= 18);
 
+* .sort()
+  - OBJETIVO: Reordenar los elementos del arreglo.
+  - TAMAÑO FINAL: Mismo número de elementos, pero en diferente orden.
+  - FÓRMULA:
+      - Números de menor a mayor: (a, b) => a - b
+      - Números de mayor a menor: (a, b) => b - a
+  - EJEMPLO: edades.sort((a, b) => b - a);
+
+* .join()
+  - OBJETIVO: Pegar/unir todos los elementos de un arreglo en un solo texto (String).
+  - TAMAÑO FINAL: Un solo texto.
+  - EJEMPLO: ['A', 'B', 'C'].join('-'); // Devuelve 'A-B-C'
+
 * .reduce()
-  - OBJETIVO: Sumar, contar o acumular todo en UN solo valor final.
+  - OBJETIVO: Sumar, contar o acumular todo en UN solo valor o contenedor final.
   - TAMAÑO FINAL: Un solo dato (número, string, objeto, etc.).
   - ARROW FUNCTION: Modifica y devuelve el acumulador.
   - EJEMPLO: numeros.reduce((acc, num) => acc + num, 0);
@@ -42,7 +55,7 @@
 -------------------------------------------------------------------
 
 Hazte esta pregunta antes de escribir código: 
-"¿Qué quiero que me devuelva la función?"
+"¿Qué quiero que me devuelva la función o paso actual?"
 
 1. ¿Un nuevo arreglo del MISMO TAMAÑO con datos modificados?
    -> Usa .map()
@@ -50,10 +63,16 @@ Hazte esta pregunta antes de escribir código:
 2. ¿Un sub-arreglo con MENOS ELEMENTOS?
    -> Usa .filter()
 
-3. ¿UN SOLO VALOR FINAL (un número total, un acumulado, etc.)?
+3. ¿Cambiar el ORDEN de los elementos?
+   -> Usa .sort()
+
+4. ¿UNIR varios textos de un arreglo en un solo string?
+   -> Usa .join()
+
+5. ¿UN CONTENEDOR U OBJETO GLOBAL (agrupar, sumar, acumular)?
    -> Usa .reduce()
 
-4. ¿SOLO UN ELEMENTO específico de la lista?
+6. ¿SOLO UN ELEMENTO específico de la lista?
    -> Usa .find()
 
 
