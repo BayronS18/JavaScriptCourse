@@ -1,0 +1,60 @@
+===================================================================
+                GUÍA RÁPIDA: MÉTODOS DE ARREGLOS EN JS
+===================================================================
+
+-------------------------------------------------------------------
+1. MAPA MENTAL GENERAL
+-------------------------------------------------------------------
+
+* .map()
+  - OBJETIVO: Transformar cada elemento.
+  - TAMAÑO FINAL: Mismo número de elementos que el arreglo original.
+  - ARROW FUNCTION: Devuelve el elemento modificado.
+  - EJEMPLO: precios.map(precio => precio * 1.19); // Agrega IVA
+
+* .filter()
+  - OBJETIVO: Filtrar o seleccionar solo algunos elementos.
+  - TAMAÑO FINAL: Sub-arreglo más pequeño (o vacío).
+  - ARROW FUNCTION: Devuelve true si el elemento se queda, false si se descarta.
+  - EJEMPLO: usuarios.filter(user => user.edad >= 18);
+
+* .reduce()
+  - OBJETIVO: Sumar, contar o acumular todo en UN solo valor final.
+  - TAMAÑO FINAL: Un solo dato (número, string, objeto, etc.).
+  - ARROW FUNCTION: Modifica y devuelve el acumulador.
+  - EJEMPLO: numeros.reduce((acc, num) => acc + num, 0);
+
+* .find()
+  - OBJETIVO: Buscar UN solo elemento (el primero que cumpla la regla).
+  - TAMAÑO FINAL: El elemento encontrado (o undefined).
+  - ARROW FUNCTION: Devuelve true al encontrar la coincidencia.
+  - EJEMPLO: usuarios.find(user => user.id === 15);
+
+* .some()
+  - OBJETIVO: Verificar si AL MENOS UN elemento cumple una regla.
+  - TAMAÑO FINAL: Un booleano (true o false).
+  - ARROW FUNCTION: Devuelve true si alguno cumple la condición.
+  - EJEMPLO: usuarios.some(user => user.plan === 'gold');
+
+
+-------------------------------------------------------------------
+2. EL TEST DE 2 SEGUNDOS (¿Qué método usar?)
+-------------------------------------------------------------------
+
+Hazte esta pregunta antes de escribir código: 
+"¿Qué quiero que me devuelva la función?"
+
+1. ¿Un nuevo arreglo del MISMO TAMAÑO con datos modificados?
+   -> Usa .map()
+
+2. ¿Un sub-arreglo con MENOS ELEMENTOS?
+   -> Usa .filter()
+
+3. ¿UN SOLO VALOR FINAL (un número total, un acumulado, etc.)?
+   -> Usa .reduce()
+
+4. ¿SOLO UN ELEMENTO específico de la lista?
+   -> Usa .find()
+
+
+===================================================================

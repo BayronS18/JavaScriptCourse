@@ -133,3 +133,75 @@ console.log(reorganizado);
 
 //Ejercicio 6  Aplicación para registrar boletos
 console.log(`-------------------Ejecicio 6-------------------`);
+
+let boletos = [1, 2, 3, 4, 5];
+
+function Concierto(nombre, duracion, boletosDisponibles){
+    this.nombreConcierto = nombre;
+    this.duracionConcierto = duracion;
+    this.boletosDisponibles = boletosDisponibles;
+    this.boletosRegistrados = [];
+    this.mostrarInformacion = function() {
+        console.log(`--------------Gran Concierto--------------`);
+        console.log(`El gran "${this.nombreConcierto}".`);
+        console.log(`Duracion de ${this.duracionConcierto} horas.`);
+        console.log(`${this.boletosDisponibles.length} boletos disponibles.`);
+        console.log(`${this.boletosRegistrados.length} boletos vendidos.`);
+        console.log(`------------------------------------------`);
+    }
+    this.registrarBoleto = function(boleto) {
+        if(this.boletosDisponibles.includes(boleto)){
+            console.log(`Boleto registrado: ${boleto}.`)
+            let idx = this.boletosDisponibles.indexOf(boleto);
+            this.boletosDisponibles.splice(idx, 1);
+            this.boletosRegistrados.push(boleto);
+
+        }else if(this.boletosRegistrados.includes(boleto)){
+            console.log(`Este boleto "${boleto}" ya ha sido registrado.`);
+        }else{
+            console.log(`Boleto inválido o inexistente`);
+        }
+      
+    }
+    this.regresarBoleto = function(boleto) {
+        if(this.boletosRegistrados.includes(boleto)){
+            console.log(`Boleto regresado: ${boleto}.`)
+            let idx = this.boletosRegistrados.indexOf(boleto);
+            this.boletosRegistrados.splice(idx, 1);
+            this.boletosDisponibles.push(boleto);
+
+        }else if(this.boletosDisponibles.includes(boleto)){
+            console.log(`Este boleto no está registrado.`);
+        }else{
+            console.log(`Boleto inválido o inexistente`);
+        }
+    }
+}
+
+let concierto = new Concierto("Concierto de Paul McCartney", 3, boletos);
+
+// Mostrar información inicial
+concierto.mostrarInformacion();
+
+// 1. Registrar boletos válidos
+concierto.registrarBoleto(2); // Boleto registrado: 2
+concierto.registrarBoleto(3); // Boleto registrado: 3
+
+// 2. Intentar registrar un boleto ya usado y uno que no existe
+concierto.registrarBoleto(2); // Este boleto "2" ya ha sido registrado.
+concierto.registrarBoleto(6); // Boleto inválido o inexistente
+
+// Mostrar información tras el registro
+concierto.mostrarInformacion();
+
+// 3. Regresar un boleto válido que sí ingresó
+concierto.regresarBoleto(2); // Boleto regresado: 2
+
+// Mostrar información tras regresar el boleto
+concierto.mostrarInformacion();
+
+// 4. Intentar regresar un boleto no registrado (está disponible, pero nadie lo ha usado)
+concierto.regresarBoleto(2); // Este boleto no está registrado.
+
+// 5. Intentar regresar un boleto inexistente (nunca existió en el concierto)
+concierto.regresarBoleto(6); // Boleto inválido o inexistente
