@@ -1,0 +1,89 @@
+================================================================================
+                    RESUMEN EJECUTIVO: EL CONTEXTO DE 'THIS'
+================================================================================
+
+REGLA DE ORO PARA SABER CUÁNTO VALE 'THIS':
+Para determinar el valor de 'this', analiza CÓMO se ejecuta la función:
+• ¿Hay un objeto a la izquierda del punto? -> Es ese objeto.
+• ¿Se invocó con la palabra 'new'?         -> Es el nuevo objeto creado.
+• ¿Se llamó a la función suelta?          -> Es 'window' / objeto global.
+• ¿Es una Arrow Function?                  -> Hereda el 'this' de donde fue escrita.
+
+--------------------------------------------------------------------------------
+1. INVOCACIÓN DIRECTA (Contexto Global / Windows)
+--------------------------------------------------------------------------------
+Ocurre cuando ejecutas la función suelta, sin ningún objeto a la izquierda.
+Como no tiene a quién aferrarse, 'this' apunta al objeto global ('window' en navegador).
+
+Ejemplo:
+    function log() {
+        console.log(this); // Imprime: window
+    }
+    log();
+
+--------------------------------------------------------------------------------
+2. MÉTODO DE UN OBJETO (Invocación por Objeto)
+--------------------------------------------------------------------------------
+Ocurre cuando ejecutas la función pegada a un objeto mediante un punto.
+'this' hace referencia al objeto que está a la izquierda del punto ("Yo, mi propiedad").
+
+Ejemplo:
+    const usuario = {
+        nombre: 'Bayron',
+        saludar() {
+            console.log(this.nombre); // 'this' es 'usuario' -> Imprime: 'Bayron'
+        }
+    };
+    usuario.saludar();
+
+--------------------------------------------------------------------------------
+3. CONSTRUCTOR (Uso de 'new')
+--------------------------------------------------------------------------------
+Ocurre cuando antepones la palabra reservada 'new' al invocar una función.
+JavaScript crea un nuevo objeto en blanco y asigna 'this' a ese nuevo objeto.
+
+Ejemplo:
+    function Auto(marca) {
+        this.marca = marca; // 'this' es el nuevo auto que se está fabricando
+    }
+    const miAuto = new Auto('Toyota');
+
+--------------------------------------------------------------------------------
+4. ARROW FUNCTIONS (() => {})
+--------------------------------------------------------------------------------
+Las funciones flecha NO tienen su propio 'this'.
+Simplemente heredan el 'this' del contexto en el que fueron escritas (Scope Léxico).
+Son ideales para callbacks como .forEach(), .map(), etc.
+
+Ejemplo:
+    const usuario = {
+        nombre: 'Bayron',
+        hobbies: ['Gym', 'Programar'],
+        mostrar() {
+            // La arrow function hereda el 'this' de mostrar(), que es 'usuario'
+            this.hobbies.forEach(hobby => {
+                console.log(`${this.nombre} prefiere ${hobby}`);
+            });
+        }
+    };
+
+--------------------------------------------------------------------------------
+5. CONTROL MANUAL (.call, .apply, .bind)
+--------------------------------------------------------------------------------
+Herramientas para forzar o amarrar explícitamente el valor de 'this' a un objeto.
+
+• .bind(objeto): Devolverá una NUEVA función con el 'this' fijado al objeto.
+• .call(objeto, arg1, arg2): Ejecuta la función inmediatamente pasando argumentos
+  separados por coma.
+• .apply(objeto, [arg1, arg2]): Ejecuta la función inmediatamente pasando 
+  argumentos dentro de un arreglo (Array).
+
+Ejemplo (.bind):
+    function saludar() {
+        console.log(`Hola ${this.nombre}`);
+    }
+    const persona = { nombre: 'Bayron' };
+    const saludarBayron = saludar.bind(persona);
+    saludarBayron(); // Imprime: "Hola Bayron"
+
+================================================================================
