@@ -1,0 +1,78 @@
+========================================================================
+                 GUÍA DE COMANDOS GIT Y GITHUB (FLUJO TRABAJO)
+========================================================================
+
+1. BUENAS PRÁCTICAS: NOMENCLATURA DE RAMAS (CON PREFIJOS)
+------------------------------------------------------------------------
+En la industria profesional se usan prefijos para saber el propósito de cada rama:
+
+  • feature/  -> Para nuevas funcionalidades o módulos del curso.
+                Ejemplo: feature/prototipos, feature/herencia
+
+  • fix/      -> Para corregir errores o bugs en el código.
+                 Ejemplo: fix/metodo-frenar
+
+  • docs/     -> Para cuando solo agregas documentación o notas.
+                 Ejemplo: docs/apuntes-poo
+
+  • refactor/ -> Para reestructurar o mejorar código existente sin añadir funciones.
+                 Ejemplo: refactor/limpieza-funciones
+
+
+2. CREAR Y NAVEGAR ENTRE RAMAS
+------------------------------------------------------------------------
+git checkout main
+  -> Te cambia a la rama principal 'main'.
+
+git checkout -b <nombre-rama>
+  -> Crea una rama nueva y se cambia a ella inmediatamente.
+  -> Ejemplo: git checkout -b feature/prototipos
+
+git branch
+  -> Lista todas las ramas locales y te muestra con un (*) en cuál estás.
+
+
+3. GUARDAR TRABAJO LOCALMENTE
+------------------------------------------------------------------------
+git status
+  -> Muestra qué archivos has modificado, creado o eliminado.
+
+git add .
+  -> Agrega todos los archivos modificados al área de preparación (Staging Area).
+
+git commit -m "tipo: descripción clara"
+  -> Guarda una versión de tus cambios en el historial local.
+  -> Ejemplo: git commit -m "docs: notas sobre iteración de prototipos"
+
+
+4. SUBIR CAMBIOS A GITHUB (REMOTO)
+------------------------------------------------------------------------
+git push -u origin <nombre-rama>
+  -> Sube la rama por PRIMERA VEZ a GitHub y la vincula con el servidor.
+  -> Ejemplo: git push -u origin feature/prototipos
+
+git push
+  -> Sube los nuevos commits a GitHub (a partir de la segunda vez).
+
+
+5. INTEGRAR CAMBIOS A LA RAMA PRINCIPAL (MERGE)
+------------------------------------------------------------------------
+git checkout main
+  -> Regresas a la rama principal.
+
+git pull origin main
+  -> Descarga lo último de GitHub para asegurarte de estar actualizado.
+
+git merge <nombre-rama>
+  -> Fusiona todo el trabajo de tu rama dentro de 'main'.
+  -> Ejemplo: git merge feature/prototipos
+
+git push origin main
+  -> Sube la rama principal (ya actualizada con la fusión) a GitHub.
+
+
+6. MANTENIMIENTO Y LIMPIEZA
+------------------------------------------------------------------------
+git branch -d <nombre-rama>
+  -> Elimina la rama localmente una vez que la fusionaste con 'main'.
+  -> Ejemplo: git branch -d feature/prototipos
