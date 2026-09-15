@@ -19,13 +19,29 @@ En la industria profesional se usan prefijos para saber el propósito de cada ra
                  Ejemplo: refactor/limpieza-funciones
 
 
-2. CREAR Y NAVEGAR ENTRE RAMAS
+2. CREAR Y NAVEGAR ENTRE RAMAS (ACTUALIZANDO MAIN PRIMERO)
 ------------------------------------------------------------------------
+Antes de crear una rama nueva, SIEMPRE hay que asegurarse de que 'main' esté
+al día. Si creas tu rama desde un 'main' viejo, el merge final va a traer
+más conflictos de los necesarios.
+
 git checkout main
   -> Te cambia a la rama principal 'main'.
 
+git fetch origin
+  -> Trae toda la información de las ramas remotas (las que están en GitHub)
+     SIN mezclarlas todavía con tu código local. Es solo un "vistazo"
+     a lo que hay en el servidor.
+
+git pull origin main
+  -> Descarga Y fusiona los últimos cambios de 'main' desde GitHub a tu
+     rama local. (De hecho, pull = fetch + merge en un solo paso; hacer
+     el fetch antes es una costumbre útil para revisar qué llegó antes
+     de mezclarlo, pero si solo quieres actualizar main, un pull basta).
+
 git checkout -b <nombre-rama>
-  -> Crea una rama nueva y se cambia a ella inmediatamente.
+  -> Ahora que 'main' está actualizado, creas tu rama nueva desde ahí
+     y te cambias a ella inmediatamente.
   -> Ejemplo: git checkout -b feature/prototipos
 
 git branch
@@ -55,20 +71,61 @@ git push
   -> Sube los nuevos commits a GitHub (a partir de la segunda vez).
 
 
-5. INTEGRAR CAMBIOS A LA RAMA PRINCIPAL (MERGE)
+5. SIMULANDO UN ENTORNO LABORAL: PULL REQUEST Y REVISIÓN
 ------------------------------------------------------------------------
-git checkout main
-  -> Regresas a la rama principal.
+En una empresa real, casi nadie mergea directo a 'main' con git merge desde
+su terminal. El flujo pasa por GitHub mediante un Pull Request (PR), para
+que otra persona (o tú mismo, simulando el rol) revise el código antes de
+integrarlo. Así se practica el proceso completo:
 
-git pull origin main
-  -> Descarga lo último de GitHub para asegurarte de estar actualizado.
+  a) Proteger la rama 'main' en GitHub (simulación de política de equipo)
+     -> En el repo: Settings > Branches > Add branch protection rule.
+     -> Marca "Require a pull request before merging" y, si quieres ser
+        estricto, "Require approvals" (mínimo 1).
+     -> Esto hace que 'main' NO acepte pushes directos: todo cambio debe
+        pasar por PR. Así se fuerza el flujo real.
 
-git merge <nombre-rama>
-  -> Fusiona todo el trabajo de tu rama dentro de 'main'.
-  -> Ejemplo: git merge feature/prototipos
+  b) Abrir el Pull Request
+     -> Después de tu 'git push -u origin <nombre-rama>', ve a GitHub:
+        aparece un botón "Compare & pull request".
+     -> Título claro + descripción de qué hiciste y por qué (en empresas
+        suele haber una plantilla: qué cambia, cómo probarlo, capturas, etc.)
+     -> Selecciona base: main <- compare: tu-rama
 
-git push origin main
-  -> Sube la rama principal (ya actualizada con la fusión) a GitHub.
+  c) Revisión de código (Code Review)
+     -> Si trabajas solo, puedes simularlo revisando tú mismo el "Files
+        changed" del PR como si fueras otra persona, dejando comentarios
+        en líneas específicas.
+     -> Estados típicos de una revisión en GitHub:
+        - "Comment": deja observaciones sin bloquear.
+        - "Approve": aprueba el PR, queda listo para mergear.
+        - "Request changes": bloquea el merge hasta que se corrija.
+
+  d) Resolver comentarios y actualizar el PR
+     -> Si hubo "Request changes", corriges en tu rama local:
+        git add .
+        git commit -m "fix: aplica comentarios de revisión"
+        git push
+     -> El PR se actualiza automáticamente con los nuevos commits, no hay
+        que abrir uno nuevo.
+
+  e) Merge del Pull Request (ya aprobado)
+     -> En GitHub, con el PR aprobado, usa el botón "Merge pull request".
+     -> Estrategias comunes que vas a ver en trabajos reales:
+        - "Create a merge commit": conserva todo el historial de commits
+          de la rama (equivalente a git merge tradicional).
+        - "Squash and merge": junta todos los commits de la rama en uno
+          solo antes de integrarlo a main (deja un historial más limpio).
+        - "Rebase and merge": reordena tus commits encima de main sin
+          crear un commit de merge.
+     -> Squash and merge es muy común en equipos porque mantiene el
+        historial de 'main' ordenado, un commit por feature/fix.
+
+  f) Sincronizar tu main local después del merge
+     -> git checkout main
+     -> git pull origin main
+     -> Así tu copia local queda igual que la de GitHub, con el cambio ya
+        integrado.
 
 
 6. MANTENIMIENTO Y LIMPIEZA
@@ -76,3 +133,24 @@ git push origin main
 git branch -d <nombre-rama>
   -> Elimina la rama localmente una vez que la fusionaste con 'main'.
   -> Ejemplo: git branch -d feature/prototipos
+
+git push origin --delete <nombre-rama>
+  -> Elimina la rama en GitHub (remota) una vez mergeada. GitHub también
+     ofrece un botón "Delete branch" directo en la pantalla del PR ya
+     mergeado, que hace lo mismo con un clic.
+
+
+7. FLUJO COMPLETO RESUMIDO (DE PRINCIPIO A FIN)
+------------------------------------------------------------------------
+  1. git checkout main
+  2. git fetch origin
+  3. git pull origin main
+  4. git checkout -b feature/nombre-descriptivo
+  5. ... trabajas, guardas con git add + git commit ...
+  6. git push -u origin feature/nombre-descriptivo
+  7. Abrir Pull Request en GitHub (main <- tu rama)
+  8. Revisión / comentarios / correcciones si aplica
+  9. Approve -> Merge (idealmente "Squash and merge")
+  10. git checkout main && git pull origin main
+  11. git branch -d feature/nombre-descriptivo
+      git push origin --delete feature/nombre-descriptivo
