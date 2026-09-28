@@ -1,0 +1,120 @@
+======================================================================
+               FRAMEWORKS Y ECOSISTEMAS EN DESARROLLO WEB
+======================================================================
+
+Concepto Clave:
+Un Framework es un entorno de trabajo completo que proporciona reglas,
+estructura y herramientas integradas para construir aplicaciones. 
+
+Nota sobre React: Técnicamente React es solo una librería para la vista
+(UI), pero en la práctica se complementa con herramientas (como React 
+Router, Next.js, Redux, etc.) para formar un ecosistema completo que 
+funciona exactamente como un framework.
+
+
+1. REACT (Y SU ECOSISTEMA) [FRONTEND]
+----------------------------------------------------------------------
+* ¿Qué es?:
+  Una librería para construir interfaces basadas en componentes, creada
+  por Meta. Para funcionar como un framework completo, se apoya en 
+  herramientas esenciales como React Router (para manejar la navegación
+  entre páginas) o gestores de estado.
+
+* ¿Para qué sirve?:
+  Crear aplicaciones web interactivas (SPAs). Te da control total para
+  elegir qué herramientas adicionales sumar a tu proyecto según lo
+  necesites.
+
+
+2. NEXT.JS [FULL-STACK / FRONTEND AVANZADO]
+----------------------------------------------------------------------
+* ¿Qué es?:
+  El framework full-stack basado en React más popular de la industria
+  (mantenido por Vercel).
+
+* ¿Para qué sirve?:
+  Permite el renderizado desde el servidor (SSR / Server-Side Rendering).
+  En lugar de enviar un archivo JS vacío al navegador, genera el HTML
+  directamente en el servidor. Esto mejora drásticamente el rendimiento
+  inicial y es fundamental para el SEO (posicionamiento en motores de 
+  búsqueda como Google).
+
+
+3. ANGULAR [FRONTEND / ENTERPRISE]
+----------------------------------------------------------------------
+* ¿Qué es?:
+  Un framework completo y robusto desarrollado por Google, estructurado
+  en TypeScript de forma nativa.
+
+* ¿Para qué sirve?:
+  Ofrece una solución "todo en uno" (incluye ruteo, peticiones HTTP, 
+  formularios y gestión de estado sin necesidad de librerías externas).
+  Es la opción preferida por grandes corporaciones e instituciones por
+  su arquitectura rígida y estandarizada.
+
+
+4. VUE.JS [FRONTEND]
+----------------------------------------------------------------------
+* ¿Qué es?:
+  Un framework progresivo y flexible para construir interfaces de usuario,
+  creado por Evan You y mantenido por su comunidad.
+
+* ¿Para qué sirve?:
+  Combina la reactividad de React con la sencillez de plantillas HTML.
+  Es conocido por tener una curva de aprendizaje muy suave y una
+  documentación impecable, ideal para integrar fácilmente en proyectos
+  pequeños o escalar a aplicaciones complejas.
+
+
+5. SVELTE [FRONTEND]
+----------------------------------------------------------------------
+* ¿Qué es?:
+  Un framework/compilador moderno que cambia el enfoque tradicional del
+  desarrollo web.
+
+* ¿Para qué sirve?:
+  A diferencia de React o Vue (que realizan trabajo en el navegador 
+  mediante el DOM Virtual), Svelte convierte el código a JavaScript 
+  puro y ultra optimizado en tiempo de compilación. El resultado son 
+  aplicaciones extremadamente rápidas, livianas y con menos código.
+
+
+======================================================================
+     NUEVAS ADICIONES: EL LADO DEL BACKEND (SERVIDOR Y APIS)
+======================================================================
+
+6. NODE.JS [ENTORNO DE EJECUCIÓN / RUNTIME]
+----------------------------------------------------------------------
+* ¿Qué es?:
+  No es un framework ni una librería. Es el entorno de ejecución que
+  permite correr JavaScript en el servidor (fuera del navegador web).
+
+* ¿Para qué sirve?:
+  Es la base de todo el ecosistema Backend con JavaScript. Permite que 
+  JavaScript acceda al sistema de archivos, bases de datos y redes para
+  construir servidores y APIs.
+
+
+7. EXPRESS.JS [FRAMEWORK BACKEND - NODE.JS]
+----------------------------------------------------------------------
+* ¿Qué es?:
+  El framework minimalista y flexible más popular de Node.js para crear
+  servidores y APIs REST.
+
+* ¿Para qué sirve?:
+  Simplifica la creación de rutas (endpoints como GET/POST), el manejo de
+  peticiones HTTP, middleware y la conexión a bases de datos. Es el 
+  estándar de la industria para entender el Backend en JS.
+
+
+8. NESTJS [FRAMEWORK BACKEND AVANZADO]
+----------------------------------------------------------------------
+* ¿Qué es?:
+  Un framework para Node.js construido nativamente con TypeScript y 
+  orientado a la arquitectura escalable de nivel empresarial.
+
+* ¿Para qué sirve?:
+  Organiza el código Backend con una estructura limpia y modular (muy 
+  similar a la arquitectura de Angular). Es la evolución natural de 
+  Express cuando necesitas construir APIs masivas, ordenadas y seguras.
+======================================================================

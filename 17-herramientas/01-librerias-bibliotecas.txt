@@ -1,0 +1,67 @@
+======================================================================
+              GUÍA DE LIBRERÍAS Y HERRAMIENTAS DE JAVASCRIPT
+======================================================================
+
+1. LODASH
+----------------------------------------------------------------------
+* ¿Qué es?:
+  Una librería de utilidades para JavaScript que facilita el trabajo
+  con arreglos, números, objetos, cadenas de texto y funciones.
+
+* ¿Para qué sirve?:
+  Simplifica tareas comunes de manipulación de datos (como clonar
+  objetos complejos, ordenar listas, filtrar información o iterar
+  elementos) escribiendo menos código y mejorando el rendimiento.
+
+
+2. RAMDA.JS
+----------------------------------------------------------------------
+* ¿Qué es?:
+  Una librería de funciones diseñada específicamente para el estilo
+  de programación funcional en JavaScript.
+
+* ¿Para qué sirve?:
+  Permite procesar y transformar datos de forma inmutable y pura. A
+  diferencia de Lodash, todas sus funciones son puras y currificadas
+  (curried por defecto), facilitando la creación de tuberías de datos
+  (pipelines) más limpias.
+
+
+3. JQUERY
+----------------------------------------------------------------------
+* ¿Qué es?:
+  Una librería clásica de JavaScript creada para simplificar la
+  manipulación del DOM, el manejo de eventos y las peticiones AJAX.
+
+* ¿Para qué sirve?:
+  Surgió para solucionar las incompatibilidades entre navegadores
+  antiguos y permitir seleccionar/modificar elementos del HTML con
+  sintaxis corta. Aunque hoy en día el JS moderno y frameworks como
+  React la han sustituido, sigue estando presente en proyectos
+  legados.
+
+
+4. CHART.JS
+----------------------------------------------------------------------
+* ¿Qué es?:
+  Una librería de visualización de datos basada en HTML5 Canvas para
+  crear gráficos interactivos y adaptables (responsive).
+
+* ¿Para qué sirve?:
+  Sirve para renderizar dashboards, estadísticas y reportes visuales
+  (gráficos de barras, líneas, torta, radar, etc.) de manera sencilla
+  a partir de arreglos de datos en JavaScript.
+
+
+5. REACT.JS
+----------------------------------------------------------------------
+* ¿Qué es?:
+  Una librería (desarrollada por Meta) enfocada en la construcción
+  de interfaces de usuario basadas en componentes reutilizables.
+
+* ¿Para qué sirve?:
+  Es la herramienta estándar de la industria para crear aplicaciones
+  web modernas, rápidas y dinámicas (SPAs). Se encarga de gestionar el
+  estado de la pantalla y actualizar el HTML automáticamente cuando los
+  datos cambian, evitando la manipulación manual del DOM.
+======================================================================
